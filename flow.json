@@ -214,16 +214,30 @@
                 "t": "gt",
                 "v": "22",
                 "vt": "num"
+            },
+            {
+                "t": "lt",
+                "v": "21.8",
+                "vt": "num"
+            },
+            {
+                "t": "else"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 1,
-        "x": 430,
+        "outputs": 3,
+        "x": 130,
         "y": 300,
         "wires": [
             [
                 "7c27d23.cd4e62c"
+            ],
+            [
+                "da9dca0a.a0a798"
+            ],
+            [
+                "7fd5be5c.fbda4"
             ]
         ]
     },
@@ -239,8 +253,8 @@
         "label": "Confort",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 820,
-        "y": 300,
+        "x": 760,
+        "y": 320,
         "wires": []
     },
     {
@@ -262,11 +276,115 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 300,
+        "x": 340,
+        "y": 280,
         "wires": [
             [
-                "e3aedfb7.d1b9f"
+                "1d784aec.4c5d25"
+            ]
+        ]
+    },
+    {
+        "id": "4c5347e8.d70d28",
+        "type": "e-mail",
+        "z": "da182025.06223",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "aprendiendoraspberrypi@gmail.com",
+        "dname": "",
+        "x": 750,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "d0f79bf5.1f55c8",
+        "type": "debug",
+        "z": "da182025.06223",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "da9dca0a.a0a798",
+        "type": "change",
+        "z": "da182025.06223",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Hace Frio",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "1d784aec.4c5d25"
+            ]
+        ]
+    },
+    {
+        "id": "7fd5be5c.fbda4",
+        "type": "change",
+        "z": "da182025.06223",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Todo OK",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "1d784aec.4c5d25"
+            ]
+        ]
+    },
+    {
+        "id": "1d784aec.4c5d25",
+        "type": "rbe",
+        "z": "da182025.06223",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "property": "payload",
+        "x": 550,
+        "y": 320,
+        "wires": [
+            [
+                "e3aedfb7.d1b9f",
+                "d0f79bf5.1f55c8",
+                "4c5347e8.d70d28"
             ]
         ]
     }
